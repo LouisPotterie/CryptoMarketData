@@ -1,7 +1,7 @@
 # CryptoMarketData
 
 Pour la page de la maquette appellée "Market prices" les fichiers sont : 
-Dans les pages : 
+ - Dans les pages : 
 - PriceOverview
 - CryptoDetail 
 Dans les composants : 
