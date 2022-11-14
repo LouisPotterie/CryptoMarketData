@@ -1,9 +1,12 @@
 # CryptoMarketData
 
 Pour la page de la maquette appellée "Market prices" les fichiers sont : 
- - Dans les pages : 
+ 
+ Dans les pages : 
 - PriceOverview
 - CryptoDetail 
+
+
 Dans les composants : 
 - Coin 
 - CoinDetail 
@@ -11,8 +14,12 @@ Dans les composants :
 - HistoryChart
 - Markets
 - Trending
+
+
 Hooks :
 - useAxios.jsx
+
+
 icons : 
 - icons.jsx
 
