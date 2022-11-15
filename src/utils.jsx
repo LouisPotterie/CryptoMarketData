@@ -7,8 +7,12 @@ export function numberFormat(num){
     return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
+export function numberFormatWithoutToFixed(num){
+    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
+
 export function percentageFormat(num){
-    return num + '%'
+    return num.toFixed(2) + '%';
 }
 
 export function getCurrentDate(separator=''){

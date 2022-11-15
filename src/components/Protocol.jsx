@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { currencyFormat } from "../utils"
+import { currencyFormat, numberFormat } from "../utils"
 import { percentageFormat } from "../utils"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,14 +11,16 @@ import Paper from '@mui/material/Paper';
 const Protocol = ({protocol}) => {
     
     return (
-        <div className="grid grid-cols-3 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-200">
-            <div className="flex items-center gap-1 w-full">
-                    <img className="w-6" src={protocol.logo} alt={protocol.name} />
-                    <p>{protocol.name}</p>
-                    <span className="text-xs">({protocol.symbol})</span>
-            </div>
-        </div>
+        <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell component="th" scope="row"><img className="w-6" src={protocol.logo} alt={protocol.name}/> {protocol.name} </TableCell>
+            <TableCell align="right">{protocol.chain}</TableCell>
+            <TableCell align="right">{protocol.change_1d} %</TableCell>
+            <TableCell align="right">{protocol.change_7d} %</TableCell>
+            <TableCell align="right">{numberFormat(protocol.tvl)} $</TableCell>
+        </TableRow>
     )
+
+
   }
   
   export default Protocol

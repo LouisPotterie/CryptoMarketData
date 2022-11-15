@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-const useAxios = (param) => {
+const useAxiosStable = (param) => {
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  axios.defaults.baseURL = 'https://api.coingecko.com/api/v3';
-  
+  axios.defaults.baseURL = 'https://stablecoins.llama.fi';
 
   const fetchData = async (param) => {
     try {
@@ -30,4 +29,4 @@ const useAxios = (param) => {
   }
 }
 
-export default useAxios
+export default useAxiosStable

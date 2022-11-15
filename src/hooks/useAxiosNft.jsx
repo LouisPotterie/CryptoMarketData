@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-const useAxios = (param) => {
+const useAxiosNFT = (param) => {
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  axios.defaults.baseURL = 'https://api.coingecko.com/api/v3';
+  axios.defaults.baseURL = 'https://api.cryptoslam.io/im6pi8nxcs120nhb/v1/collections/top-100';
+  axios.defaults.headers = {'X-BLOBR-KEY': '9pwW3CPYmKQDomeZK7CQvCHqHQNWwHhh'};
   
 
   const fetchData = async (param) => {
@@ -30,4 +31,4 @@ const useAxios = (param) => {
   }
 }
 
-export default useAxios
+export default useAxiosNFT
