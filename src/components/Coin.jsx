@@ -10,11 +10,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import '../style/Coin.css';
+import { useNavigate } from "react-router-dom"
+
 const Coin = ({coin}) => {
     
-    return (
+    /*return (
         <Link to={`/coin/${coin.id}`}>
-            <div className="grid grid-cols-3 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-200">
+            <div className="classA">
                 <div className="flex items-center gap-1 w-full">
                     <img className="w-6" src={coin.image} alt={coin.name} />
                     <p>{coin.name}</p>
@@ -31,6 +34,21 @@ const Coin = ({coin}) => {
                 </div>
             </div>
         </Link>
+    )*/
+    const navigate = useNavigate();
+    const goTo = (param) => {
+        navigate(param)
+    }
+    return (
+            <TableRow className="onClickOver" onClick={()=> {goTo(`/coin/${coin.id}`)}} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableCell component="th" scope="row"><img className="logo" src={coin.image} alt={coin.name}/>{coin.name} ({coin.symbol})</TableCell>
+                <TableCell align="right">{currencyFormat(coin.current_price)}</TableCell>
+                <TableCell align="right">
+                    {percentageFormat(coin.price_change_percentage_24h)}{coin.price_change_percentage_24h < 0 ? <TrendingDown /> : <TrendingUp />}
+                </TableCell>
+                <TableCell align="right">{currencyFormat(coin.market_cap)} </TableCell>
+            </TableRow>
+    
     )
   }
   

@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import '../style/CoinTrending.css';
+
 const CoinTrending = ({ coin }) => {
-    console.log(coin);
+  const navigate = useNavigate();
+  const goTo = (param) => {
+      navigate(param)
+  }
+
     return (
-        <Link to={`/coin/${coin.id}`}>
-          <div className="font-light mb-2 p-2 border-gray-200 border-2 rounded hover:bg-gray-200">
-            <div className="flex items-center gap-1">
-              <span className="font-semibold">{coin.score+1}.</span>
-              <img className="w-6" src={coin.small} alt={coin.name} />
-              <p>{coin.name}</p>
-              <small className="text-xs">({coin.symbol})</small>
-            </div>
-          </div>
-        </Link>
+      <TableRow className="onClickOver" onClick={()=> {goTo(`/coin/${coin.id}`)}} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+          <TableCell component="th" scope="row">{coin.score+1}</TableCell>
+          <TableCell align="right"><img className="logo" src={coin.small} alt={coin.name} /></TableCell>
+          <TableCell align="right">{coin.name} ({coin.symbol})</TableCell>
+      </TableRow>
     )
 }
 
