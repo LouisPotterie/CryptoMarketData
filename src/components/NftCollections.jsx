@@ -1,13 +1,43 @@
 import useAxiosNft from "../hooks/useAxiosNft"
 import Coin from '../components/Coin';
 import useAxiosNFT from "../hooks/useAxiosNft";
+import NftRow from "../components/NftRow";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import StableGraph from "./StableGraph";
+import '../style/NftCollections.css';
 
 const NftCollections = () => {
-  const { response} = useAxiosNFT('coins/markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=1&sparkline=false');
-  console.log(response);
+  const { response} = useAxiosNFT('/top-100');
+  console.log(response)
   return (
-    <section className="mt-8">
-      <h1 className="text-2xl mb-2">NFT Collections</h1>
+    <section className="spacetop20">
+      <h1 className="txt-2xl spacebot20">NFT Collections</h1>
+      <TableContainer component={Paper} className="spacetop20">
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead style={{ backgroundColor: "#3eb489" }}>
+                <TableRow>
+                    <TableCell>Collection Name</TableCell>
+                    <TableCell align="right">Sales Volume ($)</TableCell>
+                    <TableCell align="right">Buyer Count</TableCell>
+                    <TableCell align="right">Seller Count</TableCell>
+                    <TableCell align="right">Sales Volume Change Percentage</TableCell>
+                    <TableCell align="right">Transaction Count</TableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+
+                
+                {response && response.data.map(nft => <NftRow key={nft.id} nft={nft} />)} 
+        
+                </TableBody>
+            </Table>
+        </TableContainer>
     </section>
   )
 }

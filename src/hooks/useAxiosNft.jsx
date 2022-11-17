@@ -6,7 +6,7 @@ const useAxiosNFT = (param) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  axios.defaults.baseURL = 'https://api.cryptoslam.io/im6pi8nxcs120nhb/v1/collections/top-100';
+  axios.defaults.baseURL = 'https://api.cryptoslam.io/im6pi8nxcs120nhb/v1/collections';
   axios.defaults.headers = {'X-BLOBR-KEY': '9pwW3CPYmKQDomeZK7CQvCHqHQNWwHhh'};
   
 
