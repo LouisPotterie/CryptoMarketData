@@ -23,7 +23,6 @@ const NftCollections = () => {
                 <TableHead style={{ backgroundColor: "#3eb489" }}>
                 <TableRow>
                     <TableCell>Collection Name</TableCell>
-                    <TableCell align="right">Sales Volume ($)</TableCell>
                     <TableCell align="right">Buyer Count</TableCell>
                     <TableCell align="right">Seller Count</TableCell>
                     <TableCell align="right">Sales Volume Change Percentage</TableCell>

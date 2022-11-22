@@ -11,25 +11,18 @@ import '../style/NftRow.css';
 
 const NftRow = ({nft}) => {
 
-    console.log(nft.quote.USD.salesVolume);
-    if(nft !== undefined || nft !== null){
-        return (
-            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                    <TableCell component="th" scope="row"><img className="logo" src={nft.collectionImageURL} alt={nft.collectionName}/> {nft.collectionName} </TableCell>
-                    <TableCell align="right" key={nft.id}>{nft.quote.USD.salesVolume}</TableCell> 
-                    <TableCell align="right" key={nft.id}>{nft.buyerCount}</TableCell>
-                    <TableCell align="right" key={nft.id}>{nft.sellerCount} </TableCell>
-                    <TableCell align="right" key={nft.id}>{nft.salesVolumeChangePercentage} %</TableCell>
-                    <TableCell align="right" key={nft.id}>{nft.transactionCount} </TableCell>
-            </TableRow>
-          )
-    }
-    else{
-        return(
-            <div></div>
-        )
-
-    }
+    
+    return (
+        <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell component="th" scope="row"><img className="logo" src={nft.collectionImageURL} alt={nft.collectionName}/> {nft.collectionName} </TableCell> 
+            <TableCell align="right" key={nft.id}>{nft.buyerCount}</TableCell>
+            <TableCell align="right" key={nft.id}>{nft.sellerCount} </TableCell>
+            <TableCell align="right" key={nft.id}>{nft.salesVolumeChangePercentage} %</TableCell>
+            <TableCell align="right" key={nft.id}>{nft.transactionCount} </TableCell>
+        </TableRow>
+    )
+    
+ 
   
 }
 
